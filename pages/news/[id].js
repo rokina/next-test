@@ -1,13 +1,15 @@
-// pages/news/[id].js
+import styles from '../../styles/Home.module.scss'
+
 export default function newsId({ news }) {
 	return (
-		<main>
-			<h1>{news.title}</h1>
-			<p>{news.publishedAt}</p>
+		<main className={styles.main}>
+			<h1 className={styles.title}>{news.title}</h1>
+			<p className={styles.publishedAt}>{news.publishedAt}</p>
 			<div
 				dangerouslySetInnerHTML={{
 					__html: `${news.body}`,
 				}}
+				className={styles.post}
 			/>
 		</main>
 	);
