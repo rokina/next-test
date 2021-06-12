@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import Layout from '../components/MyLayout';
 
 export default function Home({ news }) {
   return (
-    <div>
+    <Layout>
       <ul>
         {news.map(news => (
           <li key={news.id}>
@@ -12,7 +13,7 @@ export default function Home({ news }) {
           </li>
         ))}
       </ul>
-    </div>
+    </Layout>
   );
 }
 
