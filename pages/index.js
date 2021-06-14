@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import Layout from '../components/MyLayout';
+import Slider from "../components/Slider";
 
 export default function Home({ news }) {
   return (
     <Layout>
+      <main>
+        <Slider />
+      </main>
       <ul>
         {news.map(news => (
           <li key={news.id}>
