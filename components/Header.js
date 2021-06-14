@@ -1,5 +1,6 @@
 import Link from "next/link";
-import styles from '../styles/Header.module.scss'
+import styles from '../styles/Header.module.scss';
+import SearchForm from "./SearchForm";
 
 const Header = () => (
   <header className={styles.header}>
@@ -31,7 +32,7 @@ const Header = () => (
       </ul>
     </nav>
     <div className={styles.header__search}>
-      {/* <SearchForm></SearchForm> */}
+      <SearchForm />
     </div>
   </header>
 )
