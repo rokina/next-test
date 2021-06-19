@@ -1,22 +1,30 @@
 import Link from 'next/link';
 import Layout from '../components/MyLayout';
 import Slider from "../components/Slider";
+import Pickup from "../components/Pickup";
+import MainConts from "../components/MainConts";
+import styles from '../styles/Index.module.scss';
 
 export default function Home({ news }) {
   return (
     <Layout>
       <main>
         <Slider />
+        <Pickup />
+        <div className={styles.container}>
+          <MainConts news="aaa" />
+        </div>
       </main>
-      <ul>
+      {/* <ul>
         {news.map(news => (
           <li key={news.id}>
             <Link href={`news/${news.id}`}>
               <a>{news.title}</a>
             </Link>
+            <p>{news.body}</p>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </Layout>
   );
 }
