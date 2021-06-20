@@ -1,7 +1,7 @@
 import styles from '../../styles/Home.module.scss'
 import Layout from '../../components/MyLayout';
 
-export default function newsId({ news }) {
+const newsId = ({ news }) => {
   return (
     <Layout>
       <main className={styles.main}>
@@ -17,6 +17,8 @@ export default function newsId({ news }) {
     </Layout>
   );
 }
+
+export default newsId
 
 // 静的生成のためのパスを指定します
 export const getStaticPaths = async () => {
