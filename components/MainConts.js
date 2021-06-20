@@ -1,8 +1,11 @@
-// import styles from '../styles/MainConts.module.scss';
+import styles from '../styles/MainConts.module.scss';
+import Card2 from "../components/Card2";
 
 const MainConts = (props) => {
   return (
-    <h1>{props.news}</h1>
+    <div className={styles.conts}>
+      <Card2 news={props.news} />
+    </div>
   );
 }
 

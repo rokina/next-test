@@ -12,19 +12,19 @@ const Home = ({ news }) => {
         <Slider />
         <Pickup />
         <div className={styles.container}>
-          <MainConts news="aaa" />
+          <MainConts news={news} />
         </div>
       </main>
-      <ul>
+      {/* <ul>
         {news.map(news => (
           <li key={news.id}>
-            <Link href={`news/${news.id}`}>
+            <Link href={`/news/${news.id}`}>
               <a>{news.title}</a>
             </Link>
             <p>{news.body}</p>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </Layout>
   );
 }
