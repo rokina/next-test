@@ -4,6 +4,8 @@ import Slider from "../components/Slider";
 import Pickup from "../components/Pickup";
 import MainConts from "../components/MainConts";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
+import Pager from "../components/Pager";
 import styles from '../styles/Index.module.scss';
 
 const Home = ({ news }) => {
@@ -16,17 +18,9 @@ const Home = ({ news }) => {
           <MainConts news={news} />
           <Sidebar />
         </div>
+        <Pager />
       </main>
-      {/* <ul>
-        {news.map(news => (
-          <li key={news.id}>
-            <Link href={`/news/${news.id}`}>
-              <a>{news.title}</a>
-            </Link>
-            <p>{news.body}</p>
-          </li>
-        ))}
-      </ul> */}
+      <Footer />
     </Layout>
   );
 }
