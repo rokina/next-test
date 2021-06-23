@@ -3,6 +3,7 @@ import Layout from '../components/MyLayout';
 import Slider from "../components/Slider";
 import Pickup from "../components/Pickup";
 import MainConts from "../components/MainConts";
+import Sidebar from "../components/Sidebar";
 import styles from '../styles/Index.module.scss';
 
 const Home = ({ news }) => {
@@ -13,6 +14,7 @@ const Home = ({ news }) => {
         <Pickup />
         <div className={styles.container}>
           <MainConts news={news} />
+          <Sidebar />
         </div>
       </main>
       {/* <ul>
