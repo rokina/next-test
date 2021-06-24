@@ -1,5 +1,5 @@
-import styles from '../styles/Pager.module.scss'
 import Link from "next/link";
+import styles from '../styles/Pager.module.scss'
 
 const Pager = () => {
   return (

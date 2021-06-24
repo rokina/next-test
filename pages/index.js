@@ -1,11 +1,4 @@
-import Link from 'next/link';
-import Layout from '../components/MyLayout';
-import Slider from "../components/Slider";
-import Pickup from "../components/Pickup";
-import MainConts from "../components/MainConts";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import Pager from "../components/Pager";
+import { Layout, Slider, Pickup, MainConts, Sidebar, Footer, Pager } from '../components/Index';
 import styles from '../styles/Index.module.scss';
 
 const Home = ({ news }) => {

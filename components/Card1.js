@@ -1,6 +1,4 @@
-import Link from "next/link";
 import styles from '../styles/Pickup.module.scss';
-// import SearchForm from "./SearchForm";
 
 const Pickup = () => (
   <section className={styles.pickup}>

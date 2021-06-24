@@ -1,5 +1,5 @@
-import styles from '../styles/Footer.module.scss'
 import Link from "next/link";
+import styles from '../styles/Footer.module.scss'
 
 const Footer = () => {
   return (

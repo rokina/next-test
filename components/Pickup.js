@@ -1,4 +1,3 @@
-// import Card1 from "./Card1";
 import styles from '../styles/Pickup.module.scss';
 
 const Pickup = () => {

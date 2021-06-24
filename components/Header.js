@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from '../styles/Header.module.scss';
-import SearchForm from "./SearchForm";
+import { SearchForm } from '../components/Index';
 
 const Header = () => {
   return (

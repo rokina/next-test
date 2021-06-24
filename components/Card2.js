@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from '../styles/Card2.module.scss';
-// import SearchForm from "./SearchForm";
 
 const Card2 = (props) => {
   return (
