@@ -42,7 +42,7 @@
     position: relative;
     margin: auto;
   }
-  &.is-fixed {
+  &.fixed {
     display: flex;
     padding: 20px 40px;
     #{$root}__logo {
@@ -58,7 +58,7 @@
       height: 100%;
     }
     #{$root}__search {
-      .c-form {
+      .form {
         position: static;
       }
     }

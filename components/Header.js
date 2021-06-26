@@ -1,12 +1,32 @@
+import React, { useState, useEffect } from 'react'
 import Link from "next/link";
 import styles from '../styles/Header.module.scss';
 import { SearchForm } from '../components/Index';
 
 const Header = () => {
+  const [isHeightOver, setIsHeightOver] = useState(false);
+  useEffect(() => {
+    const scrollAction = () => {
+      if (50 > window.scrollY) {
+        setIsHeightOver(true);
+      } else {
+        setIsHeightOver(false);
+      }
+    };
+    window.addEventListener("scroll", scrollAction, {
+      capture: false,
+      passive: true,
+    });
+    scrollAction();
+
+    return () => {
+      window.removeEventListener("scroll", scrollAction);
+    };
+  }, []);
+
   return (
-    <header className={styles.header}>
-      {/* <header className={styles.c-header" : className={styles.{ 'is-fixed': scrollY > 1 }"> */}
-      <h1 className={styles.header__logo}>
+    <header className={styles.header} className={isHeightOver ? styles.header : `${styles.header} ${styles.fixed}`}>
+      <h1 className={styles.header__logo} >
         <Link href="/">
           <a>
             <img src="/logo.png" width="200" height="56" />
