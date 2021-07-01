@@ -3,6 +3,11 @@ import styles from '../styles/Card2.module.scss';
 
 const Card2 = (props) => {
   const default_image = "https://images.microcms-assets.io/assets/49f98e2075bc4b10af6d727b1efa9c2b/cca3e5b7438c4f2bbebb56fe2ccd6444/42589447.webp"
+
+  const dateFormat = (date) => {
+    return new Date(date);
+  };
+
   return (
     <div>
       {props.news.map(news => (
@@ -13,7 +18,9 @@ const Card2 = (props) => {
               <img src={news.mainVisual && news.mainVisual.url ? news.mainVisual.url : default_image} alt="" className={styles.card__thumbnail} />
               <div className={styles.card__content}>
                 <time className={styles.card__date}>
-                  {news.publishedAt}
+                  {console.log(news.publishedAt)}
+                  {console.log(new Date(news.publishedAt))}
+                  {console.log(dateFormat(news.publishedAt))}
                 </time>
                 <p className={styles.card__title}>
                   {news.title}
