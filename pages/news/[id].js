@@ -1,5 +1,5 @@
 import styles from '../../styles/Home.module.scss'
-import Layout from '../../components/MyLayout';
+import { Layout } from '../components/Index';
 
 const newsId = ({ news }) => {
   return (

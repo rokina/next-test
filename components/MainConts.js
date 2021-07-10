@@ -1,5 +1,5 @@
 import styles from '../styles/MainConts.module.scss';
-import Card2 from "../components/Card2";
+import { Card2 } from '../components/Index';
 
 const MainConts = (props) => {
   return (

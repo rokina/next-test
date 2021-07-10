@@ -1,8 +1,4 @@
-import Link from 'next/link';
-import Layout from '../components/MyLayout';
-import Slider from "../components/Slider";
-import Pickup from "../components/Pickup";
-import MainConts from "../components/MainConts";
+import { Layout, Slider, Pickup, MainConts, Sidebar, Footer, Pager } from '../components/Index';
 import styles from '../styles/Index.module.scss';
 
 const Home = ({ news }) => {
@@ -13,18 +9,11 @@ const Home = ({ news }) => {
         <Pickup />
         <div className={styles.container}>
           <MainConts news={news} />
+          <Sidebar />
         </div>
+        <Pager />
       </main>
-      {/* <ul>
-        {news.map(news => (
-          <li key={news.id}>
-            <Link href={`/news/${news.id}`}>
-              <a>{news.title}</a>
-            </Link>
-            <p>{news.body}</p>
-          </li>
-        ))}
-      </ul> */}
+      <Footer />
     </Layout>
   );
 }

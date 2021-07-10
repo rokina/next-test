@@ -1,5 +1,5 @@
-import styles from '../styles/Slider.module.scss'
 import Link from "next/link";
+import styles from '../styles/Slider.module.scss'
 
 const Slider = () => {
   return (
