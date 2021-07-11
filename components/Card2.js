@@ -11,7 +11,7 @@ const Card2 = (props) => {
   };
 
   return (
-    <div>
+    <>
       {props.news.map(news => (
         <article className={styles.card} key={news.id}>
           <Link href={`/news/${news.id}`}>
@@ -30,7 +30,7 @@ const Card2 = (props) => {
           </Link>
         </article>
       ))}
-    </div>
+    </>
   );
 }
 
