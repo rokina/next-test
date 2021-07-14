@@ -1,6 +1,7 @@
 .card {
   display: inline-block;
   width: 280px;
+  position: relative;
   & + & {
     margin-left: 26px;
   }

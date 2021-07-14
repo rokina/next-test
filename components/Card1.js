@@ -14,19 +14,21 @@ const Card1 = (props) => {
     <>
       {props.pickup.map(pickup => (
         <article className={styles.card} key={pickup.id}>
-          <Link href={`/news/${pickup.id}`} className={styles.card__item}>
-            <span className={styles.card__label}>
-              {pickup.category && pickup.category.name}
-            </span>
-            <img src={pickup.mainVisual && pickup.mainVisual.url ? pickup.mainVisual.url : default_image} alt="" className={styles.card__thumbnail} />
-            <div className={styles.card__content}>
-              <time className={styles.card__date} dateTime={dateFormat(pickup.publishedAt, 'yyyy-MM-dd')}>
-                {dateFormat(pickup.publishedAt, 'yyyy.MM.dd')}
-              </time>
-              <p className={styles.card__title}>
-                {pickup.title}
-              </p>
-            </div>
+          <Link href={`/news/${pickup.id}`}>
+            <a className={styles.card__item}>
+              <span className={styles.card__label}>
+                {pickup.category && pickup.category.name}
+              </span>
+              <img src={pickup.mainVisual && pickup.mainVisual.url ? pickup.mainVisual.url : default_image} alt="" className={styles.card__thumbnail} />
+              <div className={styles.card__content}>
+                <time className={styles.card__date} dateTime={dateFormat(pickup.publishedAt, 'yyyy-MM-dd')}>
+                  {dateFormat(pickup.publishedAt, 'yyyy.MM.dd')}
+                </time>
+                <p className={styles.card__title}>
+                  {pickup.title}
+                </p>
+              </div>
+            </a>
           </Link>
         </article>
       ))}
