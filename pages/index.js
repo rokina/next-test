@@ -1,11 +1,11 @@
 import { Layout, Slider, Pickup, MainConts, Sidebar, Footer, Pager } from '../components/Index';
 import styles from '../styles/Index.module.scss';
 
-const Home = ({ news, pickup }) => {
+const Home = ({ news, pickup, slider }) => {
   return (
     <Layout>
       <main>
-        <Slider />
+        <Slider slider={slider} />
         <Pickup pickup={pickup} />
         <div className={styles.container}>
           <MainConts news={news} />
@@ -31,10 +31,14 @@ export const getStaticProps = async () => {
   const pickup = await fetch('https://headless-test.microcms.io/api/v1/pickup/99ggpm7e16?depth=2', key)
     .then(res => res.json())
     .catch(() => null);
+  const slider = await fetch('https://headless-test.microcms.io/api/v1/slider/5z3nkburtu?depth=2', key)
+    .then(res => res.json())
+    .catch(() => null);
   return {
     props: {
       news: news.contents,
       pickup: pickup.pickup_post,
+      slider: slider.slider_post,
     },
   };
 };

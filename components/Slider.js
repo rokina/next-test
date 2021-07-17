@@ -1,37 +1,43 @@
 import Link from "next/link";
 import styles from '../styles/Slider.module.scss'
+import { format } from 'date-fns';
 
-const Slider = () => {
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+const Slider = (props) => {
+
+  // 日付フォーマット
+  const dateFormat = (date, format_type) => {
+    return format(new Date(date), format_type);
+  };
+
   return (
     <div className={styles.slider}>
-      <Link href="/" className={styles.slider__item}>
-        <a>
-          <img src="http://placehold.jp/1200x675.png" alt="" />
-          <div className={styles.slider__block}>
-            <p className={styles.slider__date}>
-              2020/02/02
-            </p>
-            <p className={styles.slider__title}>title</p>
-          </div>
-        </a>
-      </Link>
+      <Swiper
+        spaceBetween={0}
+        slidesPerView={1}
+        autoplay={true}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        {props.slider.map(slider => (
+          <SwiperSlide key={slider.id}>
+            <Link href={slider.id}>
+              <a className={styles.slider__item}>
+                <img src={slider.mainVisual.url} alt="" />
+                <div className={styles.slider__block}>
+                  <time className={styles.slider__date} dateTime={dateFormat(slider.publishedAt, 'yyyy-MM-dd')}>
+                    {dateFormat(slider.publishedAt, 'yyyy.MM.dd')}
+                  </time>
+                  <p className={styles.slider__title}>{slider.title}</p>
+                </div>
+              </a>
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div slot="pagination" className="swiper-pagination" />
     </div>
-    // <div class="c-slider">
-    //   <swiper :options="swiperOption">
-    //     <swiper-slide v-for="content in sliderData" :key="content.id">
-    //       <nuxt-link :to="`/${content.id}`" class="c-slider__item">
-    //         <img :src="content.mainVisual.url" alt="" class="" />
-    //         <div class="c-slider__block">
-    //           <p class="c-slider__date">
-    //             {{ $moment(content.publishedAt).format('YYYY.MM.DD') }}
-    //           </p>
-    //           <p class="c-slider__title">{{ content.title }}</p>
-    //         </div>
-    //       </nuxt-link>
-    //     </swiper-slide>
-    //   </swiper>
-    //   <div slot="pagination" class="swiper-pagination" />
-    // </div>
   );
 }
 
