@@ -3,6 +3,8 @@ import styles from '../styles/Slider.module.scss'
 import { format } from 'date-fns';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay } from 'swiper';
+SwiperCore.use([Autoplay])
 
 const Slider = (props) => {
 
@@ -16,13 +18,15 @@ const Slider = (props) => {
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={true}
+        speed={1300}
+        loop={true}
+        autoplay={{ delay: 3000 }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
         {props.slider.map(slider => (
           <SwiperSlide key={slider.id}>
-            <Link href={slider.id}>
+            <Link href={`/${slider.id}`}>
               <a className={styles.slider__item}>
                 <img src={slider.mainVisual.url} alt="" />
                 <div className={styles.slider__block}>
