@@ -48,6 +48,7 @@
     #{$root}__logo {
       img {
         width: 150px;
+        height: auto;
       }
     }
     #{$root}__nav {
@@ -58,7 +59,7 @@
       height: 100%;
     }
     #{$root}__search {
-      .form {
+      form {
         position: static;
       }
     }

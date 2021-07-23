@@ -34,4 +34,37 @@
     font-size: 1.4rem;
     color: #ddd;
   }
+  :global {
+    .swiper {
+      &-container {
+        border: 1px solid #ddd;
+        text-align: center;
+        width: 1200px;
+        height: 675px;
+        overflow: hidden;
+        background: #fff;
+      }
+      &-slide {
+        position: relative;
+        img {
+          width: 1200px;
+          height: 675px;
+          object-fit: cover;
+        }
+      }
+      &-pagination {
+        left: 0;
+        right: 0;
+        bottom: -30px;
+        display: flex;
+        justify-content: space-between;
+        width: 60px;
+        margin: auto;
+        &-bullet {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
 }
