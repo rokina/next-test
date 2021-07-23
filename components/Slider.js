@@ -26,7 +26,7 @@ const Slider = (props) => {
       >
         {props.slider.map(slider => (
           <SwiperSlide key={slider.id}>
-            <Link href={`/${slider.id}`}>
+            <Link href={`/news/${slider.id}`}>
               <a className={styles.slider__item}>
                 <img src={slider.mainVisual.url} alt="" />
                 <div className={styles.slider__block}>

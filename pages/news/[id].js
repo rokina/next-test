@@ -1,19 +1,34 @@
 import styles from '../../styles/Home.module.scss'
-import { Layout } from '../components/Index';
+import { Layout, Sidebar, Footer } from '/components/Index';
+import { format } from 'date-fns';
 
 const newsId = ({ news }) => {
+
+  // 日付フォーマット
+  const dateFormat = (date, format_type) => {
+    return format(new Date(date), format_type);
+  };
+
   return (
     <Layout>
-      <main className={styles.main}>
-        <h1 className={styles.title}>{news.title}</h1>
-        <p className={styles.publishedAt}>{news.publishedAt}</p>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `${news.body}`,
-          }}
-          className={styles.post}
-        />
+      <main>
+        <div className={styles.container}>
+          <div className={styles.conts}>
+            <p className={styles.label}>{news.category && news.category.name}</p>
+            <h1 className={styles.title}>{news.title}</h1>
+            <time className={styles.date} dateTime={dateFormat(news.publishedAt, 'yyyy-MM-dd')}>
+              {dateFormat(news.publishedAt, 'yyyy.MM.dd')}
+            </time>
+            <div className={styles.post}
+              dangerouslySetInnerHTML={{
+                __html: `${news.body}`,
+              }}
+            ></div>
+          </div>
+          <Sidebar />
+        </div>
       </main>
+      <Footer />
     </Layout>
   );
 }
@@ -38,7 +53,7 @@ export const getStaticProps = async context => {
   const key = {
     headers: { 'X-API-KEY': process.env.API_KEY },
   };
-  const data = await fetch(
+  const news = await fetch(
     'https://headless-test.microcms.io/api/v1/news/' + id,
     key,
   )
@@ -46,7 +61,7 @@ export const getStaticProps = async context => {
     .catch(() => null);
   return {
     props: {
-      news: data,
+      news: news,
     },
   };
 };
