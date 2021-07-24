@@ -1,8 +1,5 @@
 import styles from '../../styles/Home.module.scss'
 import { Layout, Sidebar, Footer, MainConts, Pager } from '/components/Index';
-import { format } from 'date-fns';
-
-const PER_PAGE = 4;
 
 const Categories = ({ news, totalCount }) => {
   return (
