@@ -1,21 +1,22 @@
-import Link from "next/link";
+import Link from 'next/link';
 import styles from '../styles/Pager.module.scss'
 
-const Pager = () => {
+const Pager = ({ totalCount, current_id }) => {
+  const PER_PAGE = 4;
+  const range = (start, end) =>
+    [...Array(end - start + 1)].map((_, i) => start + i)
+
   return (
     <ul className={styles.pager}>
-      <li className={styles.pager__list}>
-        {/* <nuxt-link
-          :to="{ path: `/` }"
-          class="c-pager__item"
-          :class="{ 'is-active': pageNum == 1 }"
-          >1</nuxt-link> */}
-        <Link href="/1/">
-          <a className={`${styles.pager__item} ${styles.active}`}>1</a>
-        </Link>
-      </li>
+      {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
+        <li className={styles.pager__list} key={index}>
+          <Link href={`/news/page/${number}`}>
+            <a className={current_id === number ? `${styles.pager__item} ${styles.active}` : `${styles.pager__item}`}>{number}</a>
+          </Link>
+        </li>
+      ))}
     </ul>
   );
-}
+};
 
-export default Pager
+export default Pager;
