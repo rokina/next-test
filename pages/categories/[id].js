@@ -1,8 +1,7 @@
 import styles from '../../styles/Home.module.scss'
 import { Layout, Sidebar, Footer, MainConts, Pager } from '/components/Index';
-import { format } from 'date-fns';
 
-const Categories = ({ news }) => {
+const Categories = ({ news, totalCount }) => {
   return (
     <Layout>
       <main>
@@ -10,7 +9,7 @@ const Categories = ({ news }) => {
           <MainConts news={news} />
           <Sidebar />
         </div>
-        <Pager />
+        <Pager totalCount={totalCount} />
       </main>
       <Footer />
     </Layout>
@@ -46,6 +45,7 @@ export const getStaticProps = async context => {
   return {
     props: {
       news: news.contents,
+      totalCount: news.totalCount,
     },
   };
 };
