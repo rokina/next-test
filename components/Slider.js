@@ -18,7 +18,7 @@ const Slider = (props) => {
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        speed={1300}
+        speed={1200}
         loop={true}
         autoplay={{ delay: 3000 }}
         onSlideChange={() => console.log('slide change')}
